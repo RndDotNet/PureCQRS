@@ -19,10 +19,10 @@ public sealed class PostCreatedEventHandler : IEventHandler<PostCreatedEvent>
 		this.sendSeoCheckCommand = sendSeoCheckCommand;
 	}
 
-	public async ValueTask Handle(PostCreatedEvent @event, CancellationToken token)
+	public async ValueTask Handle(PostCreatedEvent e, CancellationToken token)
 	{
-		var sendToGrammarCheckerCommandTask = sendToGrammarCheckerCommand.Handle(new SendToGrammarCheckerCommand(@event.CreatedPost), token);
-		var sendSeoCheckCommandTask = sendSeoCheckCommand.Handle(new SendSeoCheckCommand(@event.CreatedPost), token);
+		var sendToGrammarCheckerCommandTask = sendToGrammarCheckerCommand.Handle(new SendToGrammarCheckerCommand(e.CreatedPost), token);
+		var sendSeoCheckCommandTask = sendSeoCheckCommand.Handle(new SendSeoCheckCommand(e.CreatedPost), token);
 
 		await sendToGrammarCheckerCommandTask;
 		await sendSeoCheckCommandTask;

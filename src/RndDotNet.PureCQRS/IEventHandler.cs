@@ -1,6 +1,6 @@
 ﻿namespace RndDotNet.PureCQRS.Example.CQRS;
 
-public interface IEventHandler<in T>
+public interface IEventHandler<in TEvent>
 {
-	ValueTask Handle(T @event, CancellationToken token);
+	ValueTask Handle(TEvent e, CancellationToken token);
 }

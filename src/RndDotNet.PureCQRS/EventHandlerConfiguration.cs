@@ -2,18 +2,17 @@
 
 namespace RndDotNet.PureCQRS.Example.CQRS;
 
-public delegate ValueTask EventHandler<in T>(T query, CancellationToken ct);
+public delegate ValueTask EventHandler<in TEvent>(TEvent @event, CancellationToken ct);
 
 public static class EventHandlerConfiguration
 {
-	public static IServiceCollection AddEventHandler<T, TEventHandler>(this IServiceCollection services)
-		where TEventHandler : class, IEventHandler<T>
+	public static IServiceCollection AddEventHandler<TEvent, TEventHandler>(this IServiceCollection services)
+		where TEventHandler : class, IEventHandler<TEvent>
 	{
-
 		services
-			.AddTransient<IEventHandler<T>, TEventHandler>()
-			.AddTransient<EventHandler<T>>(
-				sp => sp.GetRequiredService<IEventHandler<T>>().Handle);
+			.AddTransient<IEventHandler<TEvent>, TEventHandler>()
+			.AddTransient<EventHandler<TEvent>>(
+				sp => sp.GetRequiredService<IEventHandler<TEvent>>().Handle);
 
 		return services;
 	}
