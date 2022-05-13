@@ -3,7 +3,7 @@ using RndDotNet.PureCQRS.Example.Model;
 
 namespace RndDotNet.PureCQRS.Example.Queries;
 
-public record GetListPostsQuery(int? Limit = 50, int? Offset = 0);
+public record GetListPostsQuery(int? Limit = 50, int? Offset = 0) : IQuery<List<Post>>;
 
 public sealed class GetListPostsQueryHandler : IQueryHandler<GetListPostsQuery, List<Post>>
 {
