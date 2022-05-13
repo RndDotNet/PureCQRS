@@ -50,7 +50,7 @@ public record SampleEvent(SampleResult CreatedSampleResult);
 
 public sealed class SampleEventHandler : IEventHandler<SampleEvent>
 {
-	public async ValueTask Handle(SampleEvent command, CancellationToken token)
+	public async ValueTask Handle(SampleEvent @event, CancellationToken token)
 	{
 		// add logic here
 	}
