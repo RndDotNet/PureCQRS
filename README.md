@@ -5,7 +5,7 @@
 
 PureCQRS is an example of CQRS infrastructure for ASP.NET and Minimal APIs. 
 
-you can try **PureCQRS** for yourself by using the package [RndDotNet.PureCQRS](https://www.nuget.org/packages/RndDotNet.PureCQRS/).
+you can try **PureCQRS** for yourself by using the package [`RndDotNet.PureCQRS`](https://www.nuget.org/packages/RndDotNet.PureCQRS/).
 
 ## Using
 
