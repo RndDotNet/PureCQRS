@@ -58,7 +58,7 @@ public sealed class SampleEventHandler : IEventHandler<SampleEvent>
 ```
 
 There are special methods for registration handlers in DI-container:
-```
+```csharp
 builder.Services.AddQueryHandler<SampleQuery, SampleResult, SampleQueryHandler>();
 builder.Services.AddCommandHandler<SampleCommand, SampleCommandHandler>();
 builder.Services.AddEventHandler<SampleEvent, SampleEventHandler>();
